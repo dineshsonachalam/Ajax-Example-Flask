@@ -34,23 +34,28 @@
  </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script>
-var response = "";
+var result = "";
     $(function() {
     $('button').click(function() {
         $.ajax({
+            "async": false,
             url: '/signUpUser',
             data: $('form').serialize(),
             type: 'POST',
             success: function(response) {
-               response = console.log(response);
+                console.log(response);
+                result = response;
             },
             error: function(error) {
                 console.log(error);
             }
+
         });
+console.log("Response:",result);
     });
+
 });
-console.log("Response:",response);
+
 </script>
 
  </html>
